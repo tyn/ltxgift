@@ -1,0 +1,48 @@
+\documentclass[dvipdfmx,20pt]{beamer}
+\usetheme{Madrid}
+\usepackage{ltxgift}
+\title{クイズ教材の例}
+\giftdef{\ZZ}{\mathbf{Z}}
+\def\CorrectMark#1{#1→正解}
+\begin{document}
+
+\begin{gift}
+\Category{ガロア体}
+\begin{frame}{問題(\QTitle{元の位数1})}
+\Question{
+  \(\alpha\) は多項式\(x^2+x+1 \in \ZZ_2[x]\)の根とする。
+  \(\alpha\) の位数はどれか。
+}
+\begin{enumerate}
+\item \Wrong{2}\Response{→ 位数の復習が必要です}
+\item \Correct{3}
+\end{enumerate}
+\end{frame}
+\end{gift}
+
+\begin{gift}
+\begin{frame}{問題(\QTitle{元の位数2})}
+\Question{
+  \(\alpha\) は多項式\(x^3+x+1 \in \ZZ_2[x]\)の根とする。
+  \(\alpha\) の位数はどれか。
+}
+\begin{enumerate}
+\item \Correct{7}
+\item \Wrong{8}
+\end{enumerate}
+\end{frame}
+\end{gift}
+
+\begin{gift}
+\begin{frame}{問題(\QTitle{元の位数3})}
+\Question{
+  \(\alpha\) は多項式\(x^3+x^2+1 \in \ZZ_2[x]\)の根とする。
+  \(\alpha\) の位数はどれか。
+}
+\begin{enumerate}
+\item \Correct{7}
+\item \Wrong{8}
+\end{enumerate}
+\end{frame}
+\end{gift}
+\end{document}

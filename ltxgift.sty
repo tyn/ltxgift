@@ -1,0 +1,59 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesClass{ltxgift}
+[2017/02/27]
+\RequirePackage{newfile}
+\DeclareOption{answers}{%
+  \def\giftshowanswers{}}
+\ProcessOptions\relax
+
+\newoutputstream{gift}
+\openoutputfile{%
+  \jobname.pregift}{gift}
+
+\def\gift@add#1{%
+  \addtostream{gift}{#1}}
+\def\gift@begin#1{<#1>}
+\def\gift@end#1{</#1>}
+\def\gift@enclose#1#2{%
+  \gift@add{\gift@begin{#1}}%
+  \gift@add{\unexpanded{#2}}%
+  \gift@add{\gift@end{#1}}}
+
+\def\gift@#1{%
+  \begingroup \let\do\@makeother
+  \dospecials \catcode`\{=1
+  \catcode`\}=2 \catcode`\%=14
+  \def\gift@tag{#1}\@gift@}
+\def\@gift@#1{%
+  \gift@enclose{\gift@tag}{#1}%
+  \endgroup}
+\def\gift@dup#1#2{%
+  #2\gift@{#1}{#2}}
+\def\gift@dupWith#1#2#3{%
+  {#1{#3}}\gift@{#2}{#3}}
+
+\def\correctMark#1{\ifdefined
+  \giftshowanswers\CorrectMark{#1}%
+  \else{#1}\fi}
+\def\CorrectMark#1{(ANS.)#1}
+\def\wrongMark#1{\ifdefined
+  \giftshowanswers\@wrongMark{#1}%
+  \else{#1}\fi}
+\def\@wrongMark#1{#1}
+\def\Correct#1{\gift@dupWith%
+  {\correctMark}{correct}{#1}}
+\def\Wrong#1{\gift@dupWith%
+  {\wrongMark}{wrong}{#1}}
+\def\Category#1{\gift@{category}{#1}}
+\def\Response#1{\gift@{response}{#1}%
+  \ifdefined\giftshowanswers#1\fi}
+\def\Question#1{\gift@dup{question}{#1}}
+\def\QTitle#1{\gift@dup%
+  {qtitle}{#1}}
+
+\def\giftcommon#1{\gift@dup{common}{#1}}
+\def\giftdef#1#2{\def#1{#2}%
+  \gift@enclose{common}{\def#1{#2}}}
+\newenvironment{gift}%
+  {\gift@add{\gift@begin{problem}}}%
+  {\gift@add{\gift@end{problem}}}
