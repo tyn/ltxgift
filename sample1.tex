@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{ltxgift}
+\def\CorrectMark#1{#1(正解)}
+\def\WrongMark#1{#1(不正解)}
+\begin{document}
+\begin{gift}
+\Question{
+  次の積分の値を求めなさい。
+  \[ \int_{-\infty}^\infty e^{-x^2}dx \]
+}
+\begin{enumerate}
+\item \Wrong{$\pi$}
+      \Response{→二乗して極座標表示を使います。}
+\item \Correct{$\sqrt{\pi}$}
+\item \Wrong{$\frac{\sqrt{\pi}}{2}$}
+      \Response{→変数変換時の積分区間を再確認しましょう。}
+\item \Wrong{$\frac{\pi}{2}$}
+      \Response{→二乗して極座標表示を使います。}
+\end{enumerate}
+\end{gift}
+\end{document}

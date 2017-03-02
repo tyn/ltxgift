@@ -37,9 +37,9 @@
   \else{#1}\fi}
 \def\CorrectMark#1{(ANS.)#1}
 \def\wrongMark#1{\ifdefined
-  \giftshowanswers\@wrongMark{#1}%
+  \giftshowanswers\WrongMark{#1}%
   \else{#1}\fi}
-\def\@wrongMark#1{#1}
+\def\WrongMark#1{#1}
 \def\Correct#1{\gift@dupWith%
   {\correctMark}{correct}{#1}}
 \def\Wrong#1{\gift@dupWith%
