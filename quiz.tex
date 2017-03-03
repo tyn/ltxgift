@@ -3,12 +3,40 @@
 \usepackage{ltxgift}
 \title{クイズ教材の例}
 \giftdef{\ZZ}{\mathbf{Z}}
-\def\CorrectMark#1{#1→正解}
+\def\CorrectMark#1{#1(正)}
+\def\WrongMark#1{#1(誤)}
 \begin{document}
 
+\Category{デモ}
+
 \begin{gift}
-\Category{ガロア体}
-\begin{frame}{問題(\QTitle{元の位数1})}
+\begin{frame}{問題(\QTitle{既約多項式})}
+\Question{
+  \(\ZZ_2\) 上の多項式 \( x^2+x+1 \) は既約である。
+}
+\begin{enumerate}
+\item \Correct{Yes}
+\item \Wrong{No}
+\end{enumerate}
+\end{frame}
+\end{gift}
+
+\begin{gift}
+\begin{frame}{問題}
+\Question{
+  情報ビット系列の直後にパリティ検査ビット系列が並ぶ
+  符号をなんと呼ぶか。
+}
+\begin{enumerate}
+\item \Wrong{コンパクト符号}
+\item \Correct{組織的符号}
+\item \Wrong{巡回符号}
+\end{enumerate}
+\end{frame}
+\end{gift}
+
+\begin{gift}
+\begin{frame}{問題(\QTitle{元の位数})}
 \Question{
   \(\alpha\) は多項式\(x^2+x+1 \in \ZZ_2[x]\)の根とする。
   \(\alpha\) の位数はどれか。
@@ -21,27 +49,19 @@
 \end{gift}
 
 \begin{gift}
-\begin{frame}{問題(\QTitle{元の位数2})}
+\begin{frame}{問題(\QTitle{無限積分})}
 \Question{
-  \(\alpha\) は多項式\(x^3+x+1 \in \ZZ_2[x]\)の根とする。
-  \(\alpha\) の位数はどれか。
+  次の積分の値を求めなさい。
+  \[ \int_{-\infty}^\infty e^{-x^2}dx \]
 }
 \begin{enumerate}
-\item \Correct{7}
-\item \Wrong{8}
-\end{enumerate}
-\end{frame}
-\end{gift}
-
-\begin{gift}
-\begin{frame}{問題(\QTitle{元の位数3})}
-\Question{
-  \(\alpha\) は多項式\(x^3+x^2+1 \in \ZZ_2[x]\)の根とする。
-  \(\alpha\) の位数はどれか。
-}
-\begin{enumerate}
-\item \Correct{7}
-\item \Wrong{8}
+\item \Wrong{$\pi$}
+      \Response{→二乗して極座標表示を使います。}
+\item \Correct{$\sqrt{\pi}$}
+\item \Wrong{$\frac{\sqrt{\pi}}{2}$}
+      \Response{→変数変換時の積分区間を再確認しましょう。}
+\item \Wrong{$\frac{\pi}{2}$}
+      \Response{→二乗して極座標表示を使います。}
 \end{enumerate}
 \end{frame}
 \end{gift}
